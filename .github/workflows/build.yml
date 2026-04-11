@@ -22,15 +22,18 @@ jobs:
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
+        with:
+          working-directory: ./my-web
 
       - name: Build project
         run: npm run build
+        working-directory: ./my-web
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v4
         with:
           name: production-files
-          path: ./dist
+          path: ./my-web/dist
 
   deploy:
     name: Deploy
