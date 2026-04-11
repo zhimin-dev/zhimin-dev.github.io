@@ -19,12 +19,14 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --ignore-scripts
 
       - name: Build project
-        run: npm run build
+        run: npx vite build
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v4
