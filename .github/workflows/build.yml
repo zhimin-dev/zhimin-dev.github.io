@@ -30,9 +30,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-          cache-dependency-path: myweb/package-lock.json
-
+          
       - name: Install dependencies
         working-directory: myweb
         run: npm ci --include=dev
